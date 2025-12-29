@@ -13,7 +13,7 @@
         h1 { font-size: 2.8rem; margin: 15px 0; }
         .gallery { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; margin: 40px 0; }
         .card { background: white; width: 320px; border-radius: 20px; padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1); text-align: center; }
-        .card img { width: 180px; height: 150px; object-fit: cover; border-radius: 15px; margin: 15px auto; display: block; border: 4px solid #ff66b2; }
+        .card img { width: 180px; height: 150px; object-fit: contain; /* GEÄNDERT: contain statt cover */ margin: 15px auto; display: block; border: 4px solid #ff66b2; background: #f8f8f8; border-radius: 10px; }
         .badge { background: #ff66b2; color: white; padding: 8px 15px; border-radius: 20px; display: inline-block; margin-bottom: 15px; }
         .badge-blue { background: #3399ff; }
         .badge-green { background: #33cc66; }
@@ -116,11 +116,13 @@
         const images = document.querySelectorAll('img');
         images.forEach(img => {
             img.addEventListener('mouseover', () => {
-                img.style.transform = 'scale(1.05)';
+                img.style.transform = 'scale(1.08)';
                 img.style.transition = 'transform 0.3s';
+                img.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
             });
             img.addEventListener('mouseout', () => {
                 img.style.transform = 'scale(1)';
+                img.style.boxShadow = 'none';
             });
         });
         
